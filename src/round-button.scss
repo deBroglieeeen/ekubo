@@ -19,6 +19,9 @@ $white: #ffffff;
   border-bottom: solid 4px $white;
   border-radius: 15px 15px 0 0;
   transition: .4s;
+  width: 80px;
+  height: 15px;
+  font-size: small;
 }
 
 .btn-top-radius:hover {
