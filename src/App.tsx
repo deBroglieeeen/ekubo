@@ -7,6 +7,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div className="name-box" >
+          <a href="#">
+            <h2 className="site-name">ekubo</h2>
+          </a>
+        </div>
         <nav className="menu">
           <ul>
              <li><RoundButton link="#" title="サービス概要"/></li>
