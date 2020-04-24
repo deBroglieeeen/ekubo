@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+ul{
+  list-style:none;
+  display: inline-block;
+}
+
+li{
+  display: inline-block;
+  margin-left: 40px;
 }

@@ -1,0 +1,27 @@
+$main-color: #fb9e93;
+$pastel: #ffe492;
+$passion-grey: #977e91;
+$tomato: #db4c4c;
+$passion-purple: #741b47;
+$dark-purple: #4c1130;
+$grey-purple: #4f323b;
+$light-cream: #fff4e8;
+$white: #ffffff;
+
+.btn-top-radius {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 8px 10px 5px 10px;
+  text-decoration: none;
+  color: $white;
+  background: $tomato;
+  border-bottom: solid 4px $white;
+  border-radius: 15px 15px 0 0;
+  transition: .4s;
+}
+
+.btn-top-radius:hover {
+  background: $passion-purple;
+  color: #FFF;
+}

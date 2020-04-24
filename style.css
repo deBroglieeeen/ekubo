@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Bellota";
+  font-weight: bold;
+  src: url("../public/fonts/Bellota-Bold") format("truetype"); }
+@font-face {
+  font-family: "Bellota";
+  src: url("../public/fonts/Bellota-BoldItalic") format("truetype"); }
+@font-face {
+  font-family: "Bellota";
+  font-weight: italic;
+  src: url("../public/fonts/Bellota-Italic") format("truetype"); }
+@font-face {
+  font-family: "Bellota";
+  src: url("../public/fonts/Bellota-Light") format("truetype"); }
+@font-face {
+  font-family: "Bellota";
+  src: url("../public/fonts/Bellota-LightItalic") format("truetype"); }
+@font-face {
+  font-family: "Bellota";
+  src: url("../public/fonts/Bellota-Regular") format("truetype"); }
+@font-face {
+  font-family: "Didact Gothic";
+  src: url("../public/fonts/DidactGothic-Regular") format("truetype"); }
+
+/*# sourceMappingURL=style.css.map */
