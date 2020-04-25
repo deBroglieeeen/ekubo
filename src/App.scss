@@ -32,8 +32,8 @@ $white: #ffffff;
   display: flex;
   //display: inline;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  //align-items: center;
+  //justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -51,6 +51,18 @@ $white: #ffffff;
   }
 }
 
+.container{
+  display: inline-block;
+  height: 10vh;
+  //border: medium solid $dark-purple;
+  border-color: $dark-purple;
+  position: relative;
+}
+
+.menu{
+  float: right;
+}
+
 ul{
   list-style:none;
   display: inline-block;
@@ -58,20 +70,69 @@ ul{
 
 li{
   display: inline-block;
-  margin-left: 40px;
+  margin-right: 2vh;
+  font-family: 'Bellota';
+  font-size: xx-small;
 }
 
 .name-box{
   display: block;
+  float: left;
+  height: 3vh;
+  margin-left: 5vw;
+  //padding-bottom: 5vh;
 }
 
 a{
   text-decoration: none;
+  margin-bottom: 2vh;
 }
 
 .site-name{
+  h2{
+    margin-bottom: 2vh;
+  }
   text-decoration: none;
   font-family: 'Bellota';
   font-weight: 200;
   color: $main-color;
+  margin-top: 3vh;
+}
+
+.content{
+  height: 80vh;
+  background-color: $main-color;
+  .main-image{
+    height: 60vh;
+    background-image: url("./learn-2706897_1920.jpg");
+    background-size: cover;
+  }
+}
+
+img{
+  //height: 60vh;
+  object-fit: cover;
+}
+
+// .class-image{
+
+// }
+
+
+footer{
+  position: relative;
+  background-color: $grey-purple;
+  color: $white;
+  //font-family: 'Didact Gothic';
+  height: 10vh;
+  font-family: 'Bellota';
+  div{
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    align-items: center;
+    #text{
+      margin-top: 5vh;
+    }
+  }
 }

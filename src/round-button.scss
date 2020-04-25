@@ -15,8 +15,8 @@ $white: #ffffff;
   padding: 8px 10px 5px 10px;
   text-decoration: none;
   color: $white;
-  background: $grey-purple;
-  border-bottom: solid 4px $white;
+  background: $pastel;
+  border-bottom: solid 4px $main-color;
   border-radius: 15px 15px 0 0;
   transition: .4s;
   width: 80px;
@@ -25,6 +25,6 @@ $white: #ffffff;
 }
 
 .btn-top-radius:hover {
-  background: $passion-purple;
+  background: $main-color;
   color: #FFF;
 }
