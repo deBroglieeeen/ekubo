@@ -9,14 +9,32 @@ $grey-purple: #4f323b;
 $light-cream: #fff4e8;
 $white: #ffffff;
 
+$title-font-size:8vh;
+$second-title-size:5vh;
+
+
 .factor-explain-container{
-  display: inline-block;
+  float: left;
+  //display: inline;
+  .factor-title{
+    display: inline-block;
+    h2{
+      font-size: $title-font-size;
+      float: left;
+      color: $white;
+    }
+    h3{
+      font-size: $second-title-size;
+      float: right;
+      padding-top: 4vh;
+      margin-left: 2vw;
+      color: $passion-grey;
+    }
+  }
+  .factor-content{
+    h4{
+      padding-left: 5vw;
+    }
+  }
 }
 
-.factor-title{
-  display: inline-block;
-}
-
-// .factor-content{
-
-// }

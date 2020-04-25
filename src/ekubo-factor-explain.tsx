@@ -1,5 +1,5 @@
 import React, { Props } from 'react';
-import './round-button.scss'
+import './ekubo-factor-explain.scss'
 
 // Introのpropsのtype alias を定義
 type FactorExplainProps = {
@@ -12,10 +12,10 @@ const FactorExplain: React.FC<FactorExplainProps> = props => {
   return (
     <div className="factor-explain-container">
       <div className="factor-title">
-        <h2>props.title</h2><h3>props.smallTitle</h3>
+        <h2>{props.title}</h2><h3>{props.smallTitle}</h3>
       </div>
       <div className="factor-content">
-        <h4> props.content</h4>
+        <h4>{props.content}</h4>
       </div>
     </div>
   );
