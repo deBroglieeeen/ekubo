@@ -1,13 +1,13 @@
 @import './mixin/fonts';
 
-
-@include font-face('Bellota', '../public/fonts/Bellota-Bold', bold, null, ttf);
-@include font-face('Bellota', '../public/fonts/Bellota-BoldItalic', null, null, ttf);
-@include font-face('Bellota', '../public/fonts/Bellota-Italic', italic, null, ttf);
-@include font-face('Bellota', '../public/fonts/Bellota-Light', null, null, ttf);
-@include font-face('Bellota', '../public/fonts/Bellota-LightItalic', null, null, ttf);
-@include font-face('Bellota', '../public/fonts/Bellota-Regular', null, null, ttf);
-@include font-face('Didact Gothic', '../public/fonts/DidactGothic-Regular', null, null, ttf);
+$font-path: '../public/fonts/';
+@include font-face('Bellota', "`#{$font-path}`Bellota-Bold", bold, null, ttf);
+@include font-face('Bellota', "`#{$font-path}`Bellota-BoldItalic", null, null, ttf);
+@include font-face('Bellota', "`#{$font-path}`Bellota-Italic", italic, null, ttf);
+@include font-face('Bellota', "`#{$font-path}`Bellota-Light", null, null, ttf);
+@include font-face('Bellota', "`#{$font-path}`Bellota-LightItalic", null, null, ttf);
+@include font-face('Bellota', "`#{$font-path}`Bellota-Regular", null, null, ttf);
+@include font-face('Didact Gothic', "`#{$font-path}`/DidactGothic-Regular", null, null, ttf);
 
 
 $main-color: #fb9e93;
