@@ -1,5 +1,5 @@
 import React, { Props } from 'react';
-import './round-button.scss'
+import './round-button.scss';
 
 // Introのpropsのtype alias を定義
 type RoundButtonProps = {
@@ -13,7 +13,7 @@ type RoundButtonProps = {
 const RoundButton: React.FC<RoundButtonProps> = props => {
   return (
     <div>
-      <a className="btn-top-radius" href={props.link}>{props.title}</a>
+      <a className="btn-top" href={props.link}>{props.title}</a>
     </div>
   );
 }

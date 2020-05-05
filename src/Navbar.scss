@@ -1,0 +1,13 @@
+@import './style.scss';
+
+.navbar-fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: 0.6s;
+}
+
+.navbar-hidden {
+  background-color: $light-cream;
+  transition: 0.6s;
+}
