@@ -1,20 +1,20 @@
 import React, { Props } from 'react';
-import './round-button.scss';
+import './simple-button.scss';
 
 // Introのpropsのtype alias を定義
-type RoundButtonProps = {
+type SimpleButtonProps = {
   title: string;
   link: string;
 }
-type RoundButtonState = {
+type SimpleButtonState = {
   buttonOpen: boolean
 }
 
 // React.FC型を用いる
 // ジェネリクスにIntroPropsを指定
-//const RoundButton = (text:　string) => {
-class RoundButton extends React.Component<RoundButtonProps, RoundButtonState>  {
-  constructor(props: RoundButtonProps) {
+//const SimpleButton = (text:　string) => {
+class SimpleButton extends React.Component<SimpleButtonProps, SimpleButtonState>  {
+  constructor(props: SimpleButtonProps) {
     super(props);
     this.state = {
       buttonOpen: false
@@ -30,4 +30,4 @@ class RoundButton extends React.Component<RoundButtonProps, RoundButtonState>  {
   }
 }
 
-export default RoundButton;
+export default SimpleButton;
