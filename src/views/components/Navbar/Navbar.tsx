@@ -1,7 +1,7 @@
 import React, { Props } from 'react';
-import './App.scss';
+import '../../App.scss';
 import './Navbar.scss';
-import RoundButton from './round-button';
+import SimpleButton from '../SimpleButton/simple-button';
 
 type NavbarProps = {
 
@@ -38,7 +38,7 @@ class Navbar extends React.Component<NavbarProps, NavbarState>  {
     // currentScrollPosはスクロールした量
     const currentScrollPos = window.pageYOffset;
     const scrolled = this.state.turningScrollpos < currentScrollPos;
-    
+
     this.setState({
       scrolled
     });
@@ -55,10 +55,10 @@ class Navbar extends React.Component<NavbarProps, NavbarState>  {
            </div>
            <nav className="menu">
              <ul>
-                <li><RoundButton link="#" title="サービス概要"/></li>
-                <li><RoundButton link="#" title="料金プラン"/></li>
-                <li><RoundButton link="#" title="お申し込み"/></li>
-                <li><RoundButton link="#" title="講師登録"/></li>
+                <li><SimpleButton link="#" title="サービス概要"/></li>
+                <li><SimpleButton link="#" title="料金プラン"/></li>
+                <li><SimpleButton link="#" title="お申し込み"/></li>
+                <li><SimpleButton link="#" title="講師登録"/></li>
               </ul>
            </nav>
         </div>

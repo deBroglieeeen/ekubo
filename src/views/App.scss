@@ -1,5 +1,5 @@
-@import './style.scss';
-@import './mixin/fonts';
+@import './styles/style.scss';
+@import './styles/mixin/fonts';
 
 
 
@@ -97,7 +97,7 @@ a{
   background-color: $main-color;
   .main-image{
     height: 60vh;
-    background-image: url("./learn-2706897_1920.jpg");
+    background-image: url("./images/learn-2706897_1920.jpg");
     background-size: cover;
   }
   ul{
