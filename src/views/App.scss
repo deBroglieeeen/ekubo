@@ -1,7 +1,9 @@
 @import './styles/style.scss';
 @import './styles/mixin/fonts';
 
-
+* {
+  box-sizing: border-box;
+}
 
 .App {
   text-align: center;
@@ -84,7 +86,7 @@ a{
   h2{
     margin-bottom: 2vh;
   }
-  font-size: 70px;
+  font-size: 5vh;
   text-decoration: none;
   font-family: 'Bellota';
   font-weight: 200;
@@ -96,7 +98,8 @@ a{
   height: 200vh;
   background-color: $main-color;
   .main-image{
-    height: 60vh;
+    height: 110vh;
+    width: 100%;
     background-image: url("./images/learn-2706897_1920.jpg");
     background-size: cover;
   }
@@ -130,6 +133,28 @@ footer{
     align-items: center;
     #text{
       margin-top: 5vh;
+    }
+  }
+}
+
+/*------------------ 以下レスポンシブ対応（仮）--------------------*/
+
+/* タブレット向けレイアウト */
+@media all and (max-width: 1200px) {
+  .content {
+    .main-image{
+      height: 60vh;
+      width: 100%;
+    }
+  }
+}
+
+/* スマホ向けレイアウト */
+@media all and (max-width: 800px) {
+  .content {
+    .main-image{
+      height: 40vh;
+      width: 100%;
     }
   }
 }

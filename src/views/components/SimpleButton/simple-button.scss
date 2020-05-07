@@ -15,14 +15,14 @@ $white: #ffffff;
   font-family:  Tahoma;
   padding: 8px 10px 5px 10px;
   text-decoration: none;
-  color: $grey-purple;
+  color: $main-color;
   transition: .4s;
-  width: 110px;
-  height: 20px;
+  width: 15vh;
+  height: 6vh;
   font-size: large;
 }
 
 .btn-top:hover {
   background: inherit;
-  color: $passion-purple;
+  color: $tomato;
 }

@@ -1,5 +1,9 @@
 @import '../../styles/style.scss';
 
+* {
+  box-sizing: border-box;
+}
+
 .navbar-fixed {
   position: fixed;
   width: 100%;
@@ -10,4 +14,24 @@
 .navbar-hidden {
   background-color: $light-cream;
   transition: 0.6s;
+}
+
+
+.ResponsiveMenu {
+  display: none;
+}
+.menu {
+  display: block;
+}
+
+/* スマホ・タブレット向けレイアウト */
+@media all and (max-width: 1000px) {
+  .ResponsiveMenu {
+    display: block;
+  }
+  .menu {
+    display: none;
+  }
+
+
 }
