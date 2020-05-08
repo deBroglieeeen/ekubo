@@ -2,9 +2,9 @@ import React, { Props } from 'react';
 import '../../App.scss';
 import './Navbar.scss';
 import SimpleButton from '../SimpleButton/simple-button';
-import MenuButton from './MenuButton';
-import Menu from './Menu';
-import MenuItem from './MenuItem';
+import MenuButton from './Menu/MenuButton';
+import Menu from './Menu/Menu';
+import MenuItem from './Menu/MenuItem';
 
 type NavbarProps = {
 

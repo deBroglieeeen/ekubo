@@ -1,5 +1,4 @@
 import React, { Props } from 'react';
-import CSS from 'csstype';
 import './MenuAnimation.scss';
 import MenuItem from './MenuItem';
 
