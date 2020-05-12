@@ -24,14 +24,14 @@ const objectExplainPassage:string[] = ["お子様の目的に合わせて柔軟�
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Navbar/>
       <div className="content" id="container">
         <div className="main-image">
           {/* <img src="../public/happy-286152.jpg" /> */}
           {/* <img src="../public/happy-286152" width="420vw" height="280vh" /> */}
           {/* <img src="../public/logo192.png" width="420vw" height="280vh" /> */}
         </div>
-        <ul>
+        <ul id="factor-ul">
           <li><FactorExplain title="e" smallTitle="nglish" content={englishExplainPassage}/></li>
           <li><FactorExplain title="k" smallTitle="kids" content={kidsExplainPassage}/></li>
           <li><FactorExplain title="u" smallTitle="niversity" content={universityExplainPassage}/></li>
@@ -39,7 +39,7 @@ function App() {
           <li><FactorExplain title="o" smallTitle="bject" content={objectExplainPassage}/></li>
         </ul>
 
-        <div>
+        <div className='price-dev'>
           <ul className="price-list">
             <PriceTag price={lightMonthlyPrice} descriptions={lightDescriptions} courseName={lightCourseName}/>
             <PriceTag price={standardMonthlyPrice} descriptions={standardDescriptions} courseName={standardCourseName}/>

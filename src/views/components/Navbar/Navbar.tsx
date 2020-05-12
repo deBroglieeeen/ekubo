@@ -91,7 +91,7 @@ class Navbar extends React.Component<NavbarProps, NavbarState>  {
              <ul>
                 <li><SimpleButton link="#" title="サービス概要"/></li>
                 <li><SimpleButton link="#" title="料金プラン"/></li>
-                <li><SimpleButton link="#" title="お申し込み"/></li>
+                <li><SimpleButton link="https://lin.ee/1ujY7ZVsL" title="お申し込み"/></li>
                 <li><SimpleButton link="#" title="講師登録"/></li>
               </ul>
            </nav>
