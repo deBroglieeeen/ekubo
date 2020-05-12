@@ -45,13 +45,14 @@
   }
 }
 
-.container{
-  display: inline-block;
-  height: 10vh;
-  //border: medium solid $dark-purple;
-  border-color: $dark-purple;
-  position: relative;
-}
+// .container{
+//   display: inline-block;
+//   height: 10vh;
+//   //border: medium solid $dark-purple;
+//   border-color: $dark-purple;
+//   position: relative;
+// }
+
 
 .menu{
   float: right;
@@ -94,36 +95,46 @@ a{
   margin-top: 3vh;
 }
 
-.content{
-  height: 200vh;
-  background-color: $main-color;
-  .main-image{
-    height: 110vh;
-    width: 100%;
-    background-image: url("./images/learn-2706897_1920.jpg");
-    background-size: cover;
-  }
-  ul{
-    float: left;
-  }
 
+#container{
+  display:grid;
+  grid-template-columns: 1fr,1fr,1fr;
+  // grid-template-columns: repeat(3,1fr);
+   background-color: $main-color;
+    .main-image{
+      grid-column-start: 1;
+      grid-column-end:4;
+      height: 60vh;
+      background-image: url("./images/learn-2706897_1920.jpg");
+      background-size: cover;
+    }
 }
 
 img{
-  //height: 60vh;
   object-fit: cover;
 }
 
-// .class-image{
+#factor-ul{
+  grid-column-start: 1;
+  grid-column-end:4;
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+}
 
-// }
+
+.price-list{
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 30vh;
+}
 
 
 footer{
   position: relative;
   background-color: $grey-purple;
   color: $white;
-  //font-family: 'Didact Gothic';
   height: 10vh;
   font-family: 'Bellota';
   div{
