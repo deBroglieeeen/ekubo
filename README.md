@@ -49,5 +49,5 @@ http://localhost:3001 を開いてekuboにアクセスできます。
 ### パッケージの導入
 [Dockerfileを書き換えます。](https://github.com/deBroglieeeen/ekubo/pull/29)
 
-### [さらに詳しく](https://ekubo.kibe.la/notes/2)
+## [さらに詳しく](https://ekubo.kibe.la/notes/2)
 
