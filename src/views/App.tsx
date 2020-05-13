@@ -5,15 +5,20 @@ import Navbar from './components/Navbar/Navbar';
 import FactorExplain from './components/FactorExplain/ekubo-factor-explain';
 import PriceTag from './components/PriceTag/price-tag';
 
-const lightCourseName:string = 'light';
-const standardCourseName:string = 'standard';
-const premiumCourseName:string = 'premium';
-const lightMonthlyPrice:number = 20000;
-const standardMonthlyPrice:number = 30000;
-const premiumMonthlyPrice:number = 40000;
-const lightDescriptions = ['月4回','一回60分','講師固定'];
-const standardDescriptions = ['月4回','一回90分','講師固定'];
-const premiumDescriptions = ['月4回','一回120分','講師固定','チューター制度あり'];
+const lightCourseName:string = 'Light';
+const standardCourseName:string = 'Standard';
+const premiumCourseName:string = 'Premium';
+const lightMonthlyPrice:string = '15,000';
+const standardMonthlyPrice:string = '20,000';
+const premiumMonthlyPrice:string = '30,000';
+const lightCourseDetails:string = 'お手軽プラン';
+const standardCourseDetails:string = '人気プラン';
+const premiumCourseDetails:string = 'しっかり英語を鍛えたい方';
+
+
+const lightDescriptions = ['✔️1ヶ月に 8 回 のレッスン','✔️レッスンは1回あたり30分'];
+const standardDescriptions = ['✔️1ヶ月に 12 回 のレッスン','✔️レッスンは1回あたり30分','✔️講師の固定が可能'];
+const premiumDescriptions = ['✔️1ヶ月に 16 回 のレッスン','✔️レッスンは1回あたり30分','✔️講師の固定が可能','✔️チューター制度あり'];
 
 const englishExplainPassage:string[] = ["ekuboはオンライン英語レッスン専門スクールです"];
 const kidsExplainPassage:string[] = ["2020の小学生の英会話教育義務化にともない最適なカリキュラムを作成しております"];
@@ -33,7 +38,7 @@ function App() {
         </div>
         <ul id="factor-ul">
           <li><FactorExplain title="e" smallTitle="nglish" content={englishExplainPassage}/></li>
-          <li><FactorExplain title="k" smallTitle="kids" content={kidsExplainPassage}/></li>
+          <li><FactorExplain title="k" smallTitle="ids" content={kidsExplainPassage}/></li>
           <li><FactorExplain title="u" smallTitle="niversity" content={universityExplainPassage}/></li>
           <li><FactorExplain title="b" smallTitle="uddy" content={buddyExplainPassage}/></li>
           <li><FactorExplain title="o" smallTitle="bject" content={objectExplainPassage}/></li>
@@ -41,10 +46,10 @@ function App() {
 
         <div className='price-dev'>
           <ul className="price-list">
-            <PriceTag price={lightMonthlyPrice} descriptions={lightDescriptions} courseName={lightCourseName}/>
-            <PriceTag price={standardMonthlyPrice} descriptions={standardDescriptions} courseName={standardCourseName}/>
-            <PriceTag price={premiumMonthlyPrice} descriptions={premiumDescriptions} courseName={premiumCourseName}/>
-          </ul>
+          <div className="light"><PriceTag price={lightMonthlyPrice} descriptions={lightDescriptions} details={lightCourseDetails} courseName={lightCourseName}/></div>
+          <div className="standard"><PriceTag price={standardMonthlyPrice} descriptions={standardDescriptions} details={standardCourseDetails} courseName={standardCourseName}/></div>
+          <div className="premium"><PriceTag price={premiumMonthlyPrice} descriptions={premiumDescriptions} details={premiumCourseDetails} courseName={premiumCourseName}/></div>
+        </ul>
         </div>
       </div>
 
