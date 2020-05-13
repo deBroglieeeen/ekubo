@@ -64,7 +64,7 @@ class Navbar extends React.Component<NavbarProps, NavbarState>  {
         position: 'absolute',
         top: 0,
         left: 0,
-        zIndex: '10',
+        zIndex: 100,
         opacity: 1,
         display:'flex',
         alignItems:'center',

@@ -94,7 +94,7 @@ a{
     display:grid;
     grid-template-columns: repeat(3,1fr);
     // grid-auto-rows:80vh;
-    background-color: $main-color;
+    background-color: #FBB3AB;
     .main-image{
       grid-column-start: 1;
       grid-column-end:4;
@@ -109,7 +109,9 @@ img{
 }
 
 #factor-ul{
+  // background-color: blue;
   list-style:none;
+  padding-bottom: 10vh;
   grid-column-start: 1;
   grid-column-end:4;
   // grid-row-start:2;
@@ -121,16 +123,17 @@ img{
 .price-dev{
   grid-column-start: 1;
   grid-column-end: 4;
-  // display: grid;
+  display: grid;
   //grid-template-columns: repeat(3,1fr);
   width: 100%;
+  background-color: $white;
   .price-list{
-    margin-top: 30vh;
+    margin: 10vh auto;
     grid-column-start: 1;
     grid-column-end: 4;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: 15vw repeat(auto-fit, minmax( 200px, 1fr)) 15vw;
   }
 }
 

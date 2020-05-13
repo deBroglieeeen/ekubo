@@ -1,19 +1,94 @@
 @import '../../styles/style.scss';
 
-.price-tag-border{
-  border: 1px solid $passion-grey;
-  height: 50vh;
-  margin: 5%;
-  h1{
+.light {
+  grid-column: 2/3;
+}
+
+.standard {
+  grid-column: 3/4;
+}
+
+.premium {
+  grid-column: 4/5;
+}
+
+.wrapper-price {
+    position: relative;
+    margin:  0 auto;
+    // font-family: 'Bellota';
+    font-weight: 550;
+    color: #9f9f9f;
+    font-size: medium;
+}
+.package-price {
+    box-sizing: border-box;
+    width: 20vw;
+    height: 40vh;
+    border: 3.5px solid #e8e8e8;
+    border-radius: 2vh;
+    display: inline-block;
+    padding: 1vh;
+    text-align: center;
+    float: left;
+    transition: margin-top .5s linear;
     position: relative;
 
-  }
-  h2{
+  &:hover {
+    margin-top: -3vh;
+    transition: margin-top .3s linear;
+}
+}
+.name-price {
+    color: #565656;
+    font-weight: 300;
+    // font-family: 'Bellota';
+    font-size: 5vh;
+    margin-top: 1vh;
+}
+.price {
+    margin-top: 1vh;
+    font-weight: bold;
+    font-size: 1.4vh;
+
+  &::after {
+    content: " / month";
+    font-weight: normal;
+}
+}
+hr {
+    background-color: #dedede;
+    border: none;
+    height: .1vh;
+}
+.details {
+    font-size: 1.5vh;
+    font-family: 'Tahoma';
+    font-weight: 600;
+    padding: .5vh 1vw;
+    color: $main-color;
+    border: .1vh solid #e4e4e4;
+    display: inline-block;
+    border-radius: 2vh;
+    background-color: $white;
     position: relative;
-    font-family: Tahoma;
-  }
-  ul{
-    position: relative;
-    font-family: Tahoma;
-  }
+    bottom: -2.2vh;
+}
+.price-ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    padding-top: 2vh;
+    margin-left: 2vw;
+}
+
+.price-li {
+    font-family: 'Tahoma';
+    font-size: 2vh;
+//   &:before {
+//     // font-family: 'FontAwesome';
+//     // content: "\f00c";
+//     font-size: 2vh;
+//     color: $main-color;
+//     margin-right: 1vw;
+// }
 }

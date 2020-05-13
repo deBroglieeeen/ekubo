@@ -1,9 +1,12 @@
 import React, { Props } from 'react';
 import './price-tag.scss';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCheck } from "@fortawesome/fontawesome-svg-core";
 
 type PriceTagProps = {
   courseName: string;
-  price: number;
+  price: string;
+  details: string;
   descriptions: string[];
 }
 
@@ -12,16 +15,20 @@ const PriceTag: React.FC<PriceTagProps> = props => {
     <li key={index}>{description}</li>
     );
   return(
-    <div className="price-tag-border">
-      <h1>
-        {props.courseName}
-      </h1>
-      <h2>
-        {props.price}¥/月
-      </h2>
-      <ul><li>{descriptionDoms}</li></ul>
-    </div>
-  );
+
+      <div className='wrapper-price'>
+        <div className='package-price'>
+          <div className='name-price'>{props.courseName}</div>
+          <div className='price'>￥{props.price}</div>
+          <div className='details'>{props.details}</div>
+          <hr />
+
+          <ul className="price-ul"><li className="price-li">{descriptionDoms}</li></ul>
+        </div>
+      </div>
+
+
+    );
 }
 
 export default PriceTag;
