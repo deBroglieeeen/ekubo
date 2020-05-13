@@ -1,5 +1,9 @@
 # ekubo
 
+# [サービス概要](https://ekubo.kibe.la/notes/70)
+
+[ekuboの5つのバリュー](https://ekubo.kibe.la/notes/41)
+
 # Web 環境構築
 
 ## Dockerの設定
@@ -10,8 +14,6 @@
 ### Docker のユーザー設定
 Docker > Preferences > Resources
 Memory: 8.0 Gib (or 4.0 Gib?)
-
-<img title='Screen Shot 2020-05-02 at 2.42.50.png' src='/attachments/864dc59d-787a-4ad0-8167-5e7cb0973ebe' width="2072" data-meta='{"width":2072,"height":1020}'>
 
 ## ekuboのセットアップ
 
@@ -43,3 +45,9 @@ docker run \
 ```
 
 http://localhost:3001 を開いてekuboにアクセスできます。
+
+### パッケージの導入
+[Dockerfileを書き換えます。](https://github.com/deBroglieeeen/ekubo/pull/29)
+
+### [さらに詳しく](https://ekubo.kibe.la/notes/2)
+
