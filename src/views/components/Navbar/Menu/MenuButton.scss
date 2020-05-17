@@ -1,0 +1,30 @@
+@import '../../../styles/style.scss';
+
+.menu-button-container {
+  height: '32px';
+  width: '32px';
+  display:'flex';
+  flex-direction: column;
+  justify-content: 'center';
+  align-items: 'center';
+  margin: '3vh 2vw 0 auto';
+  cursor: 'pointer';
+  padding: '4px';
+  z-index: 3;
+  .line {
+    height: '2px';
+    width: '20px';
+    background: '#fb9e93';
+    transition: 'all 0.2s ease';
+  }
+
+  .line-top {
+    transform-origin: 'top left';
+    margin-bottom: '5px';
+  }
+
+  .line-bottom {
+    transform-origin: 'top left';
+    margin-top: '5px';
+  }
+}

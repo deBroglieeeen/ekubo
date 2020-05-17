@@ -1,23 +1,5 @@
 @import '../../styles/style.scss';
 
-// .price-tag-border{
-//   border: 1px solid $passion-grey;
-//   height: 50vh;
-//   margin: 5%;
-//   h1{
-//     position: relative;
-//
-//   }
-//   h2{
-//     position: relative;
-//     font-family: Tahoma;
-//   }
-//   ul{
-//     position: relative;
-//     font-family: Tahoma;
-//   }
-// }
-
 .light {
   grid-column: 2/3;
 }
@@ -100,11 +82,4 @@ hr {
 .price-li {
     font-family: 'Tahoma';
     font-size: 2vh;
-//   &:before {
-//     // font-family: 'FontAwesome';
-//     // content: "\f00c";
-//     font-size: 2vh;
-//     color: $main-color;
-//     margin-right: 1vw;
-// }
 }
