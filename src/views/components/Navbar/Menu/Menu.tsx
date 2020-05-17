@@ -4,6 +4,7 @@ import MenuItem from './MenuItem';
 
 type MenuProps = {
   open: boolean,
+  onClick: any
 }
 
 type MenuState = {
@@ -64,13 +65,13 @@ class Menu extends React.Component<MenuProps, MenuState>  {
                   <MenuItem
                     key={1}
                     delay='0.1s'
-                    onClick={() => {this.handleLinkClick("サービス概要");}}
+                    onClick={() => {this.handleLinkClick("サービス概要"); this.props.onClick("サービス概要")}}
                     title="サービス概要" />
 
                   <MenuItem
                     key={2}
                     delay='0.2s'
-                    onClick={() => {this.handleLinkClick("料金プラン");}}
+                    onClick={() => {this.handleLinkClick("料金プラン"); this.props.onClick("料金プラン")}}
                     title="料金プラン" />
 
                   <MenuItem
@@ -79,11 +80,11 @@ class Menu extends React.Component<MenuProps, MenuState>  {
                     onClick={() => {this.handleLinkClick("お申し込み");}}
                     title="お申し込み" />
 
-                  <MenuItem
+                  {/* <MenuItem
                     key={4}
                     delay='0.4s'
                     onClick={() => {this.handleLinkClick("講師登録");}}
-                    title="講師登録" />
+                    title="講師登録" /> */}
 
             </div> : null
         }

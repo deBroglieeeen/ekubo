@@ -42,7 +42,7 @@ const MenuItem: React.FC<MenuItemProps> = ({title, onClick, key, delay}) => {
       <div style = {styles.container}>
         <div
           style = {styles.menuItem}
-          onClick = {onClick}>
+          onClick = {() => onClick(title)}>
           {title}
         </div>
       <div style = {styles.line}/>

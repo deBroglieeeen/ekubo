@@ -67,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = props => {
          <div className="ResponsiveMenu">
            <div style={styles.container}>
              <MenuButton open={menuOpen} onClick={() => handleMenuClick()} color='white'/>
-             <Menu open={menuOpen} />
+             <Menu onClick = {props.clicked} open={menuOpen} />
            </div>
           </div>
 
