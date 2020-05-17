@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 //import logo from './logo.svg';
 import './App.scss';
 import Navbar from './components/Navbar/Navbar';
@@ -26,29 +26,46 @@ const universityExplainPassage:string[] = ["東大、京大、阪大をはじめ
 const buddyExplainPassage:string[] = ["ekuboの授業では徹底したマンツーマン指導を行っています。","お子様のレベルに合わせて会話内容を変えていきます。"];
 const objectExplainPassage:string[] = ["お子様の目的に合わせて柔軟に授業を行います。","シチュエーション別の英会話、新単語を増やしお子様の語彙を増やしていく授業等お客様のご要望に合わせて授業を進めていきます。"];
 
-function App() {
+
+const App = () => {
+
+  const factorEl = useRef<HTMLUListElement>(null);
+  const priceEl = useRef<HTMLUListElement>(null);
+
+  const handleMenuClick = (title: string) => {
+    if(title === "サービス概要"){
+      if(factorEl && factorEl.current){
+        factorEl.current.scrollIntoView({behavior: "smooth"});
+      }
+    }else if(title === "料金プラン"){
+      if(priceEl && priceEl.current){
+        priceEl.current.scrollIntoView({behavior: "smooth"});
+      }
+    }
+  }
+
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar clicked = {(title: string) => handleMenuClick(title)}/>
       <div className="content" id="container">
         <div className="main-image">
           {/* <img src="../public/happy-286152.jpg" /> */}
           {/* <img src="../public/happy-286152" width="420vw" height="280vh" /> */}
           {/* <img src="../public/logo192.png" width="420vw" height="280vh" /> */}
         </div>
-        <ul id="factor-ul">
-          <li><FactorExplain title="e" smallTitle="nglish" content={englishExplainPassage}/></li>
-          <li><FactorExplain title="k" smallTitle="ids" content={kidsExplainPassage}/></li>
-          <li><FactorExplain title="u" smallTitle="niversity" content={universityExplainPassage}/></li>
-          <li><FactorExplain title="b" smallTitle="uddy" content={buddyExplainPassage}/></li>
-          <li><FactorExplain title="o" smallTitle="bject" content={objectExplainPassage}/></li>
+        <ul id = "factor-ul" ref = {factorEl}>
+          <li><FactorExplain title = "e" smallTitle = "nglish" content = {englishExplainPassage}/></li>
+          <li><FactorExplain title = "k" smallTitle = "ids" content = {kidsExplainPassage}/></li>
+          <li><FactorExplain title = "u" smallTitle = "niversity" content = {universityExplainPassage}/></li>
+          <li><FactorExplain title = "b" smallTitle = "uddy" content = {buddyExplainPassage}/></li>
+          <li><FactorExplain title = "o" smallTitle = "bject" content = {objectExplainPassage}/></li>
         </ul>
 
-        <div className='price-dev'>
-          <ul className="price-list">
-          <div className="light"><PriceTag price={lightMonthlyPrice} descriptions={lightDescriptions} details={lightCourseDetails} courseName={lightCourseName}/></div>
-          <div className="standard"><PriceTag price={standardMonthlyPrice} descriptions={standardDescriptions} details={standardCourseDetails} courseName={standardCourseName}/></div>
-          <div className="premium"><PriceTag price={premiumMonthlyPrice} descriptions={premiumDescriptions} details={premiumCourseDetails} courseName={premiumCourseName}/></div>
+        <div className = 'price-dev'>
+          <ul className = "price-list" ref = {priceEl}>
+          <div className = "light"><PriceTag price = {lightMonthlyPrice} descriptions = {lightDescriptions} details = {lightCourseDetails} courseName = {lightCourseName}/></div>
+          <div className = "standard"><PriceTag price = {standardMonthlyPrice} descriptions = {standardDescriptions} details = {standardCourseDetails} courseName ={standardCourseName}/></div>
+          <div className = "premium"><PriceTag price = {premiumMonthlyPrice} descriptions = {premiumDescriptions} details = {premiumCourseDetails} courseName ={premiumCourseName}/></div>
         </ul>
         </div>
       </div>

@@ -68,14 +68,14 @@ class MenuButton extends React.Component<MenuButtonProps, MenuButtonState>  {
       },
     }
     return (
-      <div style={styles.container}
+      <div className = 'menu-button-container' style = {styles.container}
         /* onClickはNavbarのmenuOpen開閉 */
-        onClick={this.props.onClick ? this.props.onClick:
-          ()=> {this.handleClick();}}>
+        onClick = {this.props.onClick ? this.props.onClick:
+          () => {this.handleClick();}}>
 
-        <div style={{...styles.line,...styles.lineTop}}/>
-        <div style={{...styles.line,...styles.lineMiddle}}/>
-        <div style={{...styles.line,...styles.lineBottom}}/>
+        <div className = 'line' style = {{...styles.line,...styles.lineTop}}/>
+        <div className = 'line-top' style = {{...styles.line,...styles.lineMiddle}}/>
+        <div className = 'line-middle' style = {{...styles.line,...styles.lineBottom}}/>
       </div>
     );
   }

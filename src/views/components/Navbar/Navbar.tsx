@@ -1,4 +1,4 @@
-import React, { Props } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import '../../App.scss';
 import './Navbar.scss';
 import SimpleButton from '../SimpleButton/simple-button';
@@ -7,99 +7,83 @@ import Menu from './Menu/Menu';
 import MenuItem from './Menu/MenuItem';
 
 type NavbarProps = {
-
+  clicked: any,
+  // setRef: () => void;
 }
-
-type NavbarState = {
-  turningScrollpos: any,
-  scrolled: boolean,
-  menuOpen: boolean
-}
-
 
 // turningScrollposはtopからスクロールした量
 // scrolledはスクロールされたどうかの判定boolean
 // menuOpenはレスポンシブメニューの開閉boolean
-class Navbar extends React.Component<NavbarProps, NavbarState>  {
-  constructor(props: NavbarProps) {
-    super(props);
-    this.state = {
-      turningScrollpos: 30,
-      scrolled: false,
-      menuOpen: false
-    };
-  }
+const Navbar: React.FC<NavbarProps> = props => {
+  const [turningScrollpos,setTurningScrollpos] = useState(30);
+  const [scrolled,setScrolled] = useState(false);
+  const [menuOpen,setMenuOpen] = useState(false);
 
   // Adds an event listener when the component is mount.
   // スクロールを認知したらhandleScrollを実行
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
-  }
-
-  // Remove the event listener when the component is unmount.
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  }
+  useEffect(() => {
+    window.addEventListener("scroll",handleScroll);
+    return () => {
+      window.removeEventListener("scroll",handleScroll)
+    }
+  });
 
   // スクロールしているのか否か判断する関数
-  handleScroll = () => {
+  const handleScroll = () => {
     // window.pageYOffsetは垂直方向のスクロール量
     // currentScrollPosはスクロールした量
     const currentScrollPos = window.pageYOffset;
-    const scrolled = this.state.turningScrollpos < currentScrollPos;
+    const scrolled = turningScrollpos < currentScrollPos;
 
-    this.setState({
-      scrolled
-    });
+    setScrolled(scrolled)
   };
 
   // ハンバーガーボタン(MenuButtonコンポーネント)クリック時のメニュー開閉
-  handleMenuClick = () => {
-    this.setState({ menuOpen: !this.state.menuOpen });
+  const handleMenuClick = () => {
+    setMenuOpen(!menuOpen)
   }
 
-  render() {
-    const styles: any = {
-      container:{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        zIndex: '100',
-        opacity: 1,
-        display:'flex',
-        alignItems:'center',
-        width: '100%',
-    }}
+  const styles: any = {
+    container: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      zIndex: '100',
+      opacity: 1,
+      display:'flex',
+      alignItems:'center',
+      width: '100%',
+  } }
 
-    return (
-      <header className={`App-header navbar-fixed ${this.state.scrolled ? "navbar-hidden" : null}`}>
-        <div className="container">
-           <div className="name-box" >
-             <a href="#">
-               <h2 className="site-name">ekubo</h2>
-             </a>
+  return (
+    <header className={`App-header navbar-fixed ${scrolled ? "navbar-hidden" : null}`}>
+      <div className="container">
+         <div className="name-box" >
+           <a href="https://localhost3001">
+             <h2 className="site-name">ekubo</h2>
+           </a>
+         </div>
+
+         <div className="ResponsiveMenu">
+           <div style={styles.container}>
+             <MenuButton open={menuOpen} onClick={() => handleMenuClick()} color='white'/>
+             <Menu open={menuOpen} />
            </div>
+          </div>
 
-           <div className="ResponsiveMenu">
-             <div style={styles.container}>
-               <MenuButton open={this.state.menuOpen} onClick={() =>this.handleMenuClick()} color='white'/>
-               <Menu open={this.state.menuOpen} />
-             </div>
-            </div>
+         <nav className="menu">
+           <ul>
+              <li><SimpleButton onClick = {() => props.clicked("サービス概要")} title = "サービス概要"/></li>
+              <li><SimpleButton onClick = {() => props.clicked("料金プラン")} title = "料金プラン"/></li>
+              <li><SimpleButton onClick = {() => props.clicked("お申し込み")} title = "お申し込み"/></li>
+              {/* <li><SimpleButton link="#" title="講師登録"/></li> */}
+            </ul>
+         </nav>
 
-           <nav className="menu">
-             <ul>
-                <li><SimpleButton link="#" title="サービス概要"/></li>
-                <li><SimpleButton link="#" title="料金プラン"/></li>
-                <li><SimpleButton link="https://lin.ee/1ujY7ZVsL" title="お申し込み"/></li>
-                {/* <li><SimpleButton link="#" title="講師登録"/></li> */}
-              </ul>
-           </nav>
+      </div>
+    </header>
+  );
 
-        </div>
-      </header>
-    );
-  }
 }
 
 export default Navbar;
