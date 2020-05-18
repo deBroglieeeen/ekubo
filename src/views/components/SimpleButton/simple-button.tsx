@@ -4,10 +4,18 @@ import './simple-button.scss';
 // Introのpropsのtype alias を定義
 type SimpleButtonProps = {
   title: string;
-  link: string;
+  onClick: any;
 }
 type SimpleButtonState = {
   buttonOpen: boolean
+}
+
+// const scrollToRef = (ref) => window.scrollTo
+
+const handleClick = (title: string) => {
+  if(title === "お申し込み"){
+    window.location.href = "https://lin.ee/1ujY7ZVsL";
+  }
 }
 
 // React.FC型を用いる
@@ -24,7 +32,7 @@ class SimpleButton extends React.Component<SimpleButtonProps, SimpleButtonState>
   render() {
     return (
       <div>
-        <a className="btn-top" href={this.props.link}>{this.props.title}</a>
+        <a className="btn-top" onClick={ () => { handleClick(this.props.title); this.props.onClick(this.props.title); } }>{this.props.title}</a>
       </div>
     );
   }

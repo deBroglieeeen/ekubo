@@ -94,7 +94,8 @@ a{
     display:grid;
     grid-template-columns: repeat(3,1fr);
     // grid-auto-rows:80vh;
-    background-color: #FBB3AB;
+    //background-color: #FBB3AB;i
+    background-color: $main-color;
     .main-image{
       grid-column-start: 1;
       grid-column-end:4;
