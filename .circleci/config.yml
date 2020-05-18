@@ -10,20 +10,20 @@ jobs:
       - run:
         name: build docker image
         command: docker build --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web .
-      -run:
+      - run:
         name: setup heroku command
         command: bash .circleci/setup_heroku.sh
-      -run:
+      - run:
         name: heroku maintenance on
         command: heroku maintenance:on --app ${HEROKU_APP_NAME}
-      -run:
+      - run:
         name: push container to registry.heroku.com
         command: |
           docker login --username=${HEROKU_LOGIN} --password=${HROKU_AUTH_TOKEN} registry.heroku.com
           docker push registry.heroku.com/${HEROKU_APP_NAME}/web
           heroku container:push web --app ${HEROKU_APP_NAME}
           heroku container:release web --app ${HEROKU_APP_NAME}
-      -run:
+      - run:
         name: heroku maintenance off
         command: heroku maintenance:off --app ${HEROKU_APP_NAME}
 
