@@ -4,6 +4,7 @@ import MenuItem from './MenuItem';
 
 type MenuProps = {
   open: boolean,
+  onClick: any
 }
 
 type MenuState = {
@@ -28,8 +29,11 @@ class Menu extends React.Component<MenuProps, MenuState>  {
 
 
   // ハンバーガーボタン押して開くメニュー内のMenuItem押すとメニュー閉じる
-  handleLinkClick = () => {
+  handleLinkClick = (title: string) => {
     this.setState({ open: false });
+    if(title === "お申し込み"){
+      window.location.href = "https://lin.ee/1ujY7ZVsL";
+    }
   }
 
   render() {
@@ -53,38 +57,34 @@ class Menu extends React.Component<MenuProps, MenuState>  {
       }
     };
     return (
-      <div style={styles.container}>
+      <div style = {styles.container}>
         {
           this.state.open ?
-            <div style={styles.menuList}>
+            <div style = {styles.menuList}>
 
                   <MenuItem
                     key={1}
                     delay='0.1s'
-                    onClick={()=>{this.handleLinkClick();}}
-                    link="#"
+                    onClick={() => {this.handleLinkClick("サービス概要"); this.props.onClick("サービス概要")}}
                     title="サービス概要" />
 
                   <MenuItem
                     key={2}
                     delay='0.2s'
-                    onClick={()=>{this.handleLinkClick();}}
-                    link="#"
+                    onClick={() => {this.handleLinkClick("料金プラン"); this.props.onClick("料金プラン")}}
                     title="料金プラン" />
 
                   <MenuItem
                     key={3}
                     delay='0.3s'
-                    onClick={()=>{this.handleLinkClick();}}
-                    link="#"
+                    onClick={() => {this.handleLinkClick("お申し込み");}}
                     title="お申し込み" />
 
-                  <MenuItem
+                  {/* <MenuItem
                     key={4}
                     delay='0.4s'
-                    onClick={()=>{this.handleLinkClick();}}
-                    link="#"
-                    title="講師登録" />
+                    onClick={() => {this.handleLinkClick("講師登録");}}
+                    title="講師登録" /> */}
 
             </div> : null
         }

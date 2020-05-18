@@ -1,5 +1,6 @@
-import React, { Props } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MenuAnimation.scss';
+//import './MenuButton.scss';
 
 type MenuButtonProps = {
   open: boolean,
@@ -12,75 +13,81 @@ type MenuButtonState = {
   color: any
 }
 
-class MenuButton extends React.Component<MenuButtonProps, MenuButtonState>  {
-  constructor(props: MenuButtonProps) {
-    super(props);
-    this.state={
-      open: this.props.open? this.props.open:false,
-      color: this.props.color? this.props.color:'black',
-    };
-  }
+const MenuButton: React.FC<MenuButtonProps> = (props) => {
 
-  componentWillReceiveProps = (nextProps: any) => {
-    if(nextProps.open !== this.state.open){
-      this.setState({ open:nextProps.open });
+  const [open, setOpen] = useState(props.open);
+  const [color, setColor] = useState(props.color);
+  useEffect(() => {
+    if(props.open !== open){
+      setOpen(props.open)
     }
-  }
+  });
 
   // openをtrueならfalseに，falseならtrueにする
-  handleClick = () =>{
-  this.setState({ open:!this.state.open });
+  const handleClick = () => {
+    setOpen(!open);
   }
 
-  render() {
-    const styles: any = {
-      container: {
-        height: '32px',
-        width: '32px',
-        display:'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '3vh 2vw 0 auto',
-        cursor: 'pointer',
-        padding: '4px',
-        zIndex: 3,
-      },
-      line: {
-        height: '2px',
-        width: '20px',
-        background: '#fb9e93',
-        transition: 'all 0.2s ease',
-      },
-      lineTop: {
-        transform: this.state.open ? 'rotate(45deg)':'none',
-        transformOrigin: 'top left',
-        marginBottom: '5px',
-      },
-      lineMiddle: {
-        opacity: this.state.open ? 0: 1,
-        transform: this.state.open ? 'translateX(-16px)':'none',
-      },
-      lineBottom: {
-        transform: this.state.open ? 'translateX(-1px) rotate(-45deg)':'none',
-        transformOrigin: 'top left',
-        marginTop: '5px',
-      },
-    }
-    return (
-      <div style={styles.container}
-        /* onClickはNavbarのmenuOpen開閉 */
-        onClick={this.props.onClick ? this.props.onClick:
-          ()=> {this.handleClick();}}>
+  // const styles = {
+  //   lineTop: {
+  //     transform: open ? 'rotate(45deg)':'none',
+  //   },
+  //   lineMiddle: {
+  //     opacity: open ? 0: 1,
+  //     transform: open ? 'translateX(-16px)':'none',
+  //   },
+  //   lineBottom: {
+  //     transform: open ? 'translateX(-1px) rotate(-45deg)':'none',
+  //   }
+  // }
 
-        <div style={{...styles.line,...styles.lineTop}}/>
-        <div style={{...styles.line,...styles.lineMiddle}}/>
-        <div style={{...styles.line,...styles.lineBottom}}/>
-      </div>
-    );
+  const styles: any = {
+    container: {
+      height: '32px',
+      width: '32px',
+      display:'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: '3vh 2vw 0 auto',
+      cursor: 'pointer',
+      padding: '4px',
+      zIndex: 3,
+    },
+    line: {
+      height: '2px',
+      width: '20px',
+      background: '#fb9e93',
+      transition: 'all 0.2s ease',
+    },
+    lineTop: {
+      transform: open ? 'rotate(45deg)':'none',
+      transformOrigin: 'top left',
+      marginBottom: '5px',
+    },
+    lineMiddle: {
+      opacity: open ? 0: 1,
+      transform: open ? 'translateX(-16px)':'none',
+    },
+    lineBottom: {
+      transform: open ? 'translateX(-1px) rotate(-45deg)':'none',
+      transformOrigin: 'top left',
+      marginTop: '5px',
+    },
   }
 
+  return (
+    <div style = {styles.container}
+      className = 'menu-button-container'
+      /* onClickはNavbarのmenuOpen開閉 */
+      onClick = {props.onClick ? props.onClick:
+        () => {handleClick();}} >
+
+      <div className = "line line-top" style = {{...styles.line, ...styles.lineTop}} />
+      <div className = "line line-middle" style = {{...styles.line, ...styles.lineMiddle}}/>
+      <div className = "line line-bottom" style = {{...styles.line, ...styles.lineBottom}}/>
+    </div>
+  );
 }
-
 
 export default MenuButton;
