@@ -14,11 +14,12 @@ RUN yarn install --silent
 #RUN yarn install react-scripts@3.4.1 -g --silent
 RUN yarn global add react-scripts@3.4.1 --silent
 RUN yarn add @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome --silent
-RUN yarn build
+#RUN yarn build
 
 # add app
 COPY . ./
+#EXPOSE 5000:5000
 
 # start app(for development)
-# CMD ["yarn", "start"]
-CMD [ "serve", "-s", "build" ]
+CMD ["yarn", "start"]
+#CMD [ "serve", "-s", "build" ]
