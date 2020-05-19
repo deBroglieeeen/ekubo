@@ -23,7 +23,7 @@
             command: "docker build --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web ."
             name: "build docker image"
         - run:
-           command: "bash .circleci/setup_heroku.sh"
+            command: "bash .circleci/heroku_setup.sh"
             name: "setup heroku command"
         - run:
            command: "heroku maintenance:on --app ${HEROKU_APP_NAME}"
