@@ -1,8 +1,9 @@
 ---
   jobs:
     build:
-      machine:
-        image: circleci/classic:edge
+      #machine:
+      docker:
+        - image: circleci/classic:edge
       # executor:
       #   name: node/default
       # docker:
@@ -15,8 +16,9 @@
           command: docker-compose build
 
     deploy:
-      machine:
-        image: circleci/classic:edge
+      #machine:
+        docker:
+          - image: circleci/classic:edge
       steps:
         - checkout
         - run:
