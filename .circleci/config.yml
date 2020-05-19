@@ -33,14 +33,14 @@ jobs:
           command: "docker build --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web ."
           name: "build docker image"
       - run:
-          command: "bash .circleci/heroku_setup.sh"
           name: "setup heroku command"
+          command: "bash .circleci/setup_heroku.sh"
       - run:
          command: "heroku maintenance:on --app ${HEROKU_APP_NAME}"
          name: "heroku maintenance on"
       - run:
           command: |
-              docker login --username=${HEROKU_LOGIN} --password=${HROKU_AUTH_TOKEN} registry.heroku.com
+              docker login --username=_ --password=${HROKU_AUTH_TOKEN} registry.heroku.com
               docker push registry.heroku.com/${HEROKU_APP_NAME}/web
               heroku container:push web --app ${HEROKU_APP_NAME}
               heroku container:release web --app ${HEROKU_APP_NAME}
