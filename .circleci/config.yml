@@ -34,7 +34,7 @@ jobs:
           name: "build docker image"
       - run:
           name: "setup heroku command"
-          command: "bash .circleci/setup_heroku.sh"
+          command: "bash .circleci/heroku_setup.sh"
       - run:
          command: "heroku maintenance:on --app ${HEROKU_APP_NAME}"
          name: "heroku maintenance on"
