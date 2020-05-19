@@ -1,8 +1,8 @@
 ---
   jobs:
     build-and-test:
-      executor:
-        name: node/default
+      # executor:
+      #   name: node/default
       steps:
         - checkout
         -
