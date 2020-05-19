@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/ekubo
     docker:
       - image: circleci/node:stretch
     # executor:
@@ -15,6 +16,7 @@ jobs:
           command: docker-compose build
 
   deploy:
+    working_directory: ~/ekubo
     docker:
       - image: circleci/node:stretch
     steps:
