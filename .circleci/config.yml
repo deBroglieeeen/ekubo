@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/classic:edge
+      - image: circleci/node:stretch
     # executor:
     #   name: node/default
     # docker:
@@ -16,7 +16,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/classic:edge
+      - image: circleci/node:stretch
     steps:
       - checkout
       - run:
