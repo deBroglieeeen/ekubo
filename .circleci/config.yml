@@ -1,11 +1,23 @@
 ---
   jobs:
-    build-and-test:
+    build:
+      machine:
+        - image: circleci/classic:edge
       # executor:
       #   name: node/default
+      # docker:
+      #- image: circleci/node:4.8.2
       steps:
         - checkout
+          name: docker-compose build
+          command: docker-compose build
+          run: ~
         -
+    deploy:
+      machine:
+        - image: circleci/classic:edge
+      steps:
+        - checkout
           command: "docker build --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web ."
           name: "build docker image"
           run: ~
@@ -40,10 +52,15 @@
     node: circleci/node@1.1.6
   version: 2.1
   workflows:
-    build-and-test:
+    build_and_deploy:
       jobs:
-        -
-          deploy: ~
+        - build:
           filters:
             branches:
               only: master
+        - deploy:
+          filters:
+            branches:
+              only: master
+          requires:
+            - build
