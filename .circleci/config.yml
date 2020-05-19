@@ -2,7 +2,7 @@
   jobs:
     build:
       machine:
-        - image: circleci/classic:edge
+        image: circleci/classic:edge
       # executor:
       #   name: node/default
       # docker:
@@ -16,7 +16,7 @@
 
     deploy:
       machine:
-        - image: circleci/classic:edge
+        image: circleci/classic:edge
       steps:
         - checkout
         - run:
