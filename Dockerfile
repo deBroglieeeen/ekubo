@@ -12,6 +12,6 @@ RUN yarn run build
 # production environment
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 8081
-CMD ["ls;","which","default.conf;","nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
