@@ -1,8 +1,9 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/ekubo
-    machine: true
+    #working_directory: ~/ekubo
+    machine:
+      image: circleci/classic:edge
     # docker:
     #   - image: circleci/node:stretch
     # executor:
@@ -20,8 +21,9 @@ jobs:
           command: docker-compose build
 
   deploy:
-    working_directory: ~/ekubo
-    machine: true
+    #working_directory: ~/ekubo
+    machine:
+      image: circleci/classic:edge
     # docker:
     #   - image: circleci/node:stretch
     steps:
@@ -40,7 +42,7 @@ jobs:
       #    name: "heroku maintenance on"
       - run:
           command: |
-              docker login --username=_ --password=${HROKU_AUTH_TOKEN} registry.heroku.com
+              docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
               docker push registry.heroku.com/${HEROKU_APP_NAME}/web
               heroku container:push web --app ${HEROKU_APP_NAME}
               heroku container:release web --app ${HEROKU_APP_NAME}
