@@ -14,9 +14,9 @@ FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/nginx.conf
 # ディレクトリオーナーを変更
-# RUN touch /var/run/nginx.pid && \
-#   chown -R nginx:nginx /var/run/nginx.pid && \
-#   chown -R nginx:nginx /var/cache/nginx
+RUN touch /var/run/nginx.pid && \
+  chown -R nginx:nginx /var/run/nginx.pid && \
+  chown -R nginx:nginx /var/cache/nginx
 
 # 追加
 # uid=100(nginx) gid=101(nginx) groups=101(nginx)
