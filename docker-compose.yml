@@ -7,6 +7,6 @@ services:
     build:
       context: .
     ports:
-      - '1337:8081'
+      - '1337:8080'
     stdin_open: true
     tty: true
