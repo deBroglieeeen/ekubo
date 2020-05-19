@@ -3,8 +3,8 @@ jobs:
   build:
     working_directory: ~/ekubo
     machine: true
-    docker:
-      - image: circleci/node:stretch
+    # docker:
+    #   - image: circleci/node:stretch
     # executor:
     #   name: node/default
     # docker:
@@ -22,8 +22,8 @@ jobs:
   deploy:
     working_directory: ~/ekubo
     machine: true
-    docker:
-      - image: circleci/node:stretch
+    # docker:
+    #   - image: circleci/node:stretch
     steps:
       - checkout
 
