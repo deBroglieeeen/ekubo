@@ -1,36 +1,21 @@
 version: 2
 jobs:
   build:
-    #working_directory: ~/ekubo
     machine:
       image: circleci/classic:edge
-    # docker:
-    #   - image: circleci/node:stretch
-    # executor:
-    #   name: node/default
-    # docker:
-    #- image: circleci/node:4.8.2
     steps:
       - checkout
-
-      # - setup_remote_docker:
-      #     docker_layer_caching: true
 
       - run:
           name: docker-compose build
           command: docker-compose build
 
   deploy:
-    #working_directory: ~/ekubo
     machine:
       image: circleci/classic:edge
-    # docker:
-    #   - image: circleci/node:stretch
     steps:
       - checkout
 
-      # - setup_remote_docker:
-      #     docker_layer_caching: true
       - run:
           command: "docker build --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web ."
           name: "build docker image"
@@ -51,16 +36,6 @@ jobs:
       #     command: "heroku maintenance:off --app ${HEROKU_APP_NAME}"
       #     name: "heroku maintenance off"
 
-
-      # - run:
-      #   node/with-cache:
-      #     steps:
-      #       -
-      #         run: "yarn install"
-      #       -
-      #         run: "yarn test"
-# orbs:
-#   node: circleci/node@1.1.6
 workflows:
   version: 2
   build_and_deploy:
