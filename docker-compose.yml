@@ -1,17 +1,13 @@
 # version: '3.7'
 version: '3.2'
 services:
-  ekubo:
-    container_name: ekubo
+
+  ekubo-prod:
+    container_name: ekubo-prod
     build:
       context: .
-    volumes:
-      - '.:/app'
-      - '/app/node_modules'
-    #command: sh -c "pwd && yarn start"
+      dockerfile: Dockerfile.prod
     ports:
-      - 3001:3000
-    environment:
-      - CHOKIDAR_USEPOLLING=true
+      - '1337:80'
     stdin_open: true
     tty: true
