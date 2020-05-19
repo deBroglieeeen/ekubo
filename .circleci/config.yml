@@ -9,7 +9,7 @@
       #- image: circleci/node:4.8.2
       steps:
         - checkout
-          name: docker-compose build
+          name: docker-compose-build
           command: docker-compose build
           run: ~
         -
