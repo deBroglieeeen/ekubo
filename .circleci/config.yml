@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     working_directory: ~/ekubo
-    # machine: true
+    machine: true
     docker:
       - image: circleci/node:stretch
     # executor:
@@ -12,8 +12,8 @@ jobs:
     steps:
       - checkout
 
-      - setup_remote_docker:
-          docker_layer_caching: true
+      # - setup_remote_docker:
+      #     docker_layer_caching: true
 
       - run:
           name: docker-compose build
@@ -21,14 +21,14 @@ jobs:
 
   deploy:
     working_directory: ~/ekubo
-    # machine: true
+    machine: true
     docker:
       - image: circleci/node:stretch
     steps:
       - checkout
 
-      - setup_remote_docker:
-          docker_layer_caching: true
+      # - setup_remote_docker:
+      #     docker_layer_caching: true
       - run:
           command: "docker build --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web ."
           name: "build docker image"
