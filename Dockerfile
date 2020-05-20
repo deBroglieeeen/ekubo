@@ -13,7 +13,7 @@ RUN yarn run build
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/nginx.conf
-RUN grep listen /etc/nginx/sites-enabled/*
+RUN ls /etc/nginx
 COPY ./nginx.conf /etc/nginx/sites-enabled
 
 # ディレクトリオーナーを変更
