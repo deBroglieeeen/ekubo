@@ -14,10 +14,10 @@ FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/nginx.conf
 RUN ls /etc/nginx
-RUN cat /etc/nginx/conf.d
+RUN cat /etc/nginx/conf.d/default.conf
 RUN cat /etc/nginx/fastcgi.conf
 RUN cat /etc/nginx/nginx.conf
-COPY ./nginx.conf /etc/nginx/sites-enabled
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # ディレクトリオーナーを変更
 RUN touch /var/run/nginx.pid && \
