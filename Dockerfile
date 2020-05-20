@@ -13,6 +13,9 @@ RUN yarn run build
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/nginx.conf
+RUN grep listen /etc/nginx/sites-enabled/*
+COPY ./nginx.conf /etc/nginx/sites-enabled
+
 # ディレクトリオーナーを変更
 RUN touch /var/run/nginx.pid && \
   chown -R nginx:nginx /var/run/nginx.pid && \
@@ -21,6 +24,6 @@ RUN touch /var/run/nginx.pid && \
 # 追加
 # uid=100(nginx) gid=101(nginx) groups=101(nginx)
 # USER nginx
-USER root
-EXPOSE 8080
+# USER root
+EXPOSE 1337:8080
 CMD ["nginx", "-g", "daemon off;"]
