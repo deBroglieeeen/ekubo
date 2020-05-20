@@ -21,5 +21,6 @@ RUN touch /var/run/nginx.pid && \
 # 追加
 # uid=100(nginx) gid=101(nginx) groups=101(nginx)
 # USER nginx
+USER root
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
