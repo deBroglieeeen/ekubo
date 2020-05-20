@@ -14,6 +14,9 @@ FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/nginx.conf
 RUN ls /etc/nginx
+RUN cat conf.d && \
+  cat fastcgi.conf && \
+  cat nginx.conf
 COPY ./nginx.conf /etc/nginx/sites-enabled
 
 # ディレクトリオーナーを変更
