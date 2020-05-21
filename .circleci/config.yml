@@ -17,6 +17,18 @@ jobs:
       - checkout
 
       - run:
+          name: "set default region"
+          command: "aws configure set default.region ${AWS_DEFAULT_REGION}"
+
+      - run:
+          name: "set access key"
+          command: "aws configure set default.aws_access_key_id ${AWS_ACCESS_KEY}"
+
+      - run:
+          name: "set secret access key"
+          command: "aws configure set default.aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}"
+
+      - run:
           name: "retrieve token"
           command: "aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin ${AWS_URI_VALUE}"
 
