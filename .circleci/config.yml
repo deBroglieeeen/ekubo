@@ -47,6 +47,8 @@ jobs:
       # - run:
       #     name: "push your image"
       #     command: "docker push ${AWS_URI_VALUE}/ekubo:latest"
+    commands:
+      - ./deploy.sh
 
 
 workflows:
@@ -63,5 +65,4 @@ workflows:
               only: master
           requires:
              - build
-          commands:
-             - ./deploy.sh
+
