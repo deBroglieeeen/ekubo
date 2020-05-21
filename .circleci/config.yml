@@ -17,24 +17,25 @@ jobs:
       - checkout
 
       - run:
-          command: "docker build --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web ."
-          name: "build docker image"
-      - run:
-          name: "setup heroku command"
-          command: "bash .circleci/heroku_setup.sh"
+          name: "retrieve token"
+          command: "aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin ${AWS_URI_VALUE}"
+
       # - run:
-      #    command: "heroku maintenance:on --app ${HEROKU_APP_NAME}"
-      #    name: "heroku maintenance on"
+      #     name: "Build Docker image"
+      #     command: "docker build -t ekubo ."
+
       - run:
-          command: |
-              docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
-              docker push registry.heroku.com/${HEROKU_APP_NAME}/web
-              heroku container:push web --app ${HEROKU_APP_NAME}
-              heroku container:release web --app ${HEROKU_APP_NAME}
-          name: "push container to registry.heroku.com"
-      # - run:
-      #     command: "heroku maintenance:off --app ${HEROKU_APP_NAME}"
-      #     name: "heroku maintenance off"
+          name: "Build Docker image"
+          command: "docker-compose build "
+
+      - run:
+          name: "tag your image"
+          command: "docker tag ekubo-prod:latest ${AWS_URI_VALUE}/ekubo:latest"
+
+      - run:
+          name: "push your image"
+          command: "docker push ${AWS_URI_VALUE}/ekubo:latest"
+
 
 workflows:
   version: 2

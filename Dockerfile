@@ -12,23 +12,19 @@ RUN yarn run build
 # production environment
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/nginx.conf
+# COPY ./nginx.conf /etc/nginx/nginx.conf
 RUN ls /etc/nginx
 RUN cat /etc/nginx/conf.d/default.conf
 RUN cat /etc/nginx/fastcgi.conf
 RUN cat /etc/nginx/nginx.conf
-COPY ./default.conf /etc/nginx/conf.d/default.conf
+# COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 # ディレクトリオーナーを変更
 RUN touch /var/run/nginx.pid && \
   chown -R nginx:nginx /var/run/nginx.pid && \
   chown -R nginx:nginx /var/cache/nginx
 
-# 追加
-# uid=100(nginx) gid=101(nginx) groups=101(nginx)
-# USER nginx
-# USER root
-
-
 # EXPOSE 1337:8080
+
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

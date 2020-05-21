@@ -4,9 +4,10 @@ services:
 
   ekubo-prod:
     container_name: ekubo-prod
+    image: ekubo-prod
     build:
       context: .
     ports:
-      - '1337:8080'
+      - '80:80'
     stdin_open: true
     tty: true
