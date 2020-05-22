@@ -49,10 +49,17 @@ jobs:
       #     command: "docker push ${AWS_URI_VALUE}/ekubo:latest"
     # commands:
     #   - ./deploy.sh
+      - run:
+          name: "give permission"
+          command: "chmod 755 ./deploy.sh"
 
-orbs:
-  aws-ecr: circleci/aws-ecr@0.0.2
-  aws-ecs: circleci/aws-ecs@0.0.3
+      - run:
+          name: "run shell"
+          command: "./deploy.sh"
+
+# orbs:
+#   aws-ecr: circleci/aws-ecr@0.0.2
+#   aws-ecs: circleci/aws-ecs@0.0.3
 workflows:
   version: 2.1
   build_and_deploy:
@@ -67,15 +74,15 @@ workflows:
               only: master
           requires:
              - build
-      - aws-ecr/build-and-push-image:
-          account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
-          repo: "${AWS_RESOURCE_NAME_PREFIX}"
-          region: ${AWS_DEFAULT_REGION}
-          tag: "${CIRCLE_SHA1}"
-      - aws-ecs/deploy-service-update:
-          requires:
-            - aws-ecr/build-and-push-image
-          aws-region: ${AWS_DEFAULT_REGION}
-          family: "${AWS_RESOURCE_NAME_PREFIX}-service"
-          cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
-          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
+      # - aws-ecr/build-and-push-image:
+      #     account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
+      #     repo: "${AWS_RESOURCE_NAME_PREFIX}"
+      #     region: ${AWS_DEFAULT_REGION}
+      #     tag: "${CIRCLE_SHA1}"
+      # - aws-ecs/deploy-service-update:
+      #     requires:
+      #       - aws-ecr/build-and-push-image
+      #     aws-region: ${AWS_DEFAULT_REGION}
+      #     family: "${AWS_RESOURCE_NAME_PREFIX}-service"
+      #     cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
+      #     container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
