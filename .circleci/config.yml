@@ -51,11 +51,11 @@ jobs:
     #   - ./deploy.sh
       - run:
           name: "give permission"
-          command: "chmod 755 ./deploy.sh"
+          command: "chmod 755 .circleci/deploy.sh"
 
       - run:
           name: "run shell"
-          command: "./deploy.sh"
+          command: ".circleci/deploy.sh"
 
 # orbs:
 #   aws-ecr: circleci/aws-ecr@0.0.2
