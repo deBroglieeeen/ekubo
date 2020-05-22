@@ -55,7 +55,7 @@ deploy_cluster() {
                        $JQ ".services[0].deployments | .[] | select(.taskDefinition != \"$revision\") | .taskDefinition"); then
             echo "Waiting for stale deployments:"
             echo "$stale"
-            sleep 5
+            sleep 30
         else
             echo "Deployed!"
             return 0
