@@ -1,0 +1,88 @@
+version: 2.1
+jobs:
+  build:
+    machine:
+      image: circleci/classic:edge
+    steps:
+      - checkout
+
+      - run:
+          name: docker-compose build
+          command: docker-compose build
+
+  deploy:
+    machine:
+      image: circleci/classic:edge
+    steps:
+      - checkout
+
+      # - run:
+      #     name: "set default region"
+      #     command: "aws configure set default.region ${AWS_DEFAULT_REGION}"
+
+      # - run:
+      #     name: "set access key"
+      #     command: "aws configure set default.aws_access_key_id ${AWS_ACCESS_KEY}"
+
+      # - run:
+      #     name: "set secret access key"
+      #     command: "aws configure set default.aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}"
+
+      # - run:
+      #     name: "retrieve token"
+      #     command: "aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin ${AWS_URI_VALUE}"
+
+      # - run:
+      #     name: "Build Docker image"
+      #     command: "docker build -t ekubo ."
+
+      - run:
+          name: "Build Docker image"
+          command: "docker-compose build "
+
+      - run:
+          name: "tag your image"
+          command: "docker tag ekubo-prod:latest ${AWS_URI_VALUE}/ekubo:$CIRCLE_SHA1"
+
+      # - run:
+      #     name: "push your image"
+      #     command: "docker push ${AWS_URI_VALUE}/ekubo:latest"
+    # commands:
+    #   - ./deploy.sh
+      - run:
+          name: "give permission"
+          command: "chmod 755 .circleci/deploy.sh"
+
+      - run:
+          name: "run shell"
+          command: ".circleci/deploy.sh"
+
+# orbs:
+#   aws-ecr: circleci/aws-ecr@0.0.2
+#   aws-ecs: circleci/aws-ecs@0.0.3
+workflows:
+  version: 2.1
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - deploy:
+          filters:
+            branches:
+              only: master
+          requires:
+             - build
+      # - aws-ecr/build-and-push-image:
+      #     account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
+      #     repo: "${AWS_RESOURCE_NAME_PREFIX}"
+      #     region: ${AWS_DEFAULT_REGION}
+      #     tag: "${CIRCLE_SHA1}"
+      # - aws-ecs/deploy-service-update:
+      #     requires:
+      #       - aws-ecr/build-and-push-image
+      #     aws-region: ${AWS_DEFAULT_REGION}
+      #     family: "${AWS_RESOURCE_NAME_PREFIX}-service"
+      #     cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
+      #     container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
