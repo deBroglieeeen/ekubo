@@ -59,7 +59,7 @@ const Navbar: React.FC<NavbarProps> = props => {
     <header className={`App-header navbar-fixed ${scrolled ? "navbar-hidden" : null}`}>
       <div className="container">
          <div className="name-box" >
-           <a href="https://localhost3001">
+           <a href="/">
              <h2 className="site-name">ekubo</h2>
            </a>
          </div>
