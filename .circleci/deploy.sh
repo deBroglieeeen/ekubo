@@ -26,7 +26,7 @@ make_task_def(){
 		}
 	]'
 
-	task_def=$(printf "$task_template" ${AWS_ECS_CONTAINER_DEFNITION_NAME} $AWS_ACCOUNT_ID ${AWS_DEFAULT_REGION} ${AWS_ECR_REP_NAME} $CIRCLE_SHA1)
+	task_def=$(printf "$task_template" ${AWS_ECS_CONTAINER_DEFNITION_NAME} $AWS_ACCOUNT_ID ${AWS_DEFAULT_REGION} ${AWS_ECR_REP_NAME} latest)
 }
 
 # more bash-friendly output for jq
@@ -71,7 +71,7 @@ deploy_cluster() {
 
 push_ecr_image(){
 	eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION})
-	docker push $AWS_ACCOUNT_ID.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${AWS_ECR_REP_NAME}:$CIRCLE_SHA1
+	docker push $AWS_ACCOUNT_ID.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${AWS_ECR_REP_NAME}:latest
   echo "pushed ecr image"
 }
 

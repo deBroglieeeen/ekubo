@@ -42,7 +42,7 @@ jobs:
 
       - run:
           name: "tag your image"
-          command: "docker tag ekubo-prod:latest ${AWS_URI_VALUE}/ekubo:$CIRCLE_SHA1"
+          command: "docker tag ekubo-prod:latest ${AWS_URI_VALUE}/ekubo:latest"
 
       # - run:
       #     name: "push your image"
