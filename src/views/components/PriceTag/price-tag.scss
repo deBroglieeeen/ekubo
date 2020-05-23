@@ -1,17 +1,5 @@
 @import '../../styles/style.scss';
 
-.light {
-  grid-column: 2/3;
-}
-
-.standard {
-  grid-column: 3/4;
-}
-
-.premium {
-  grid-column: 4/5;
-}
-
 .wrapper-price {
   margin:  0 auto;
     // font-family: 'Bellota';
@@ -21,7 +9,6 @@
 }
 .package-price {
     box-sizing: border-box;
-    width: 20vw;
     height: 40vh;
     border: 3.5px solid #e8e8e8;
     border-radius: 2vh;
@@ -31,8 +18,9 @@
     float: left;
     transition: margin-top .5s linear;
     position: relative;
+    margin: 1vh auto;
   &:hover {
-    margin-top: -3vh;
+    margin-top: -1vh;
     transition: margin-top .3s linear;
   }
 }

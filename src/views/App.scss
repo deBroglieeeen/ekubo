@@ -92,48 +92,42 @@ a{
 
 #container{
     display:grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
+    //grid-template-rows: ;
     // grid-auto-rows:80vh;
     //background-color: #FBB3AB;i
     background-color: $main-color;
     .main-image{
       grid-column-start: 1;
       grid-column-end:4;
-      height: 90vh;
+      height: 0;
+      padding-top: 56.25%;
       background-image: url("./images/learn-2706897_1920.jpg");
       background-size: cover;
+      width: 100%;
     }
 }
 
-img{
-  object-fit: cover;
-}
 
 #factor-ul{
   list-style:none;
   padding-bottom: 10vh;
-  grid-column-start: 1;
-  grid-column-end:4;
-  // grid-row-start:2;
-  // grid-row-end:4;
+  grid-column: 1 / 3;
   display:grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-gap: 2em;
 }
 
 .price-dev{
-  grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column: 1 / 3;
   display: grid;
-  //grid-template-columns: repeat(3,1fr);
-  width: 100%;
   background-color: $white;
   .price-list{
-    margin: 10vh auto;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    width: 100%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    grid-column: 1 / 3;
     display: grid;
-    grid-template-columns: 15vw repeat(auto-fit, minmax( 200px, 1fr)) 15vw;
+    grid-template-columns: repeat(auto-fit, minmax( 360px, 1fr)) ;
   }
 }
 
@@ -161,20 +155,20 @@ footer{
 
 /* タブレット向けレイアウト */
 @media all and (max-width: 1200px) {
-  .content {
-    .main-image{
-      height: 60vh;
-      width: 100%;
-    }
-  }
+  // .content {
+  //   .main-image{
+  //     height: 60vh;
+  //     width: 100%;
+  //   }
+  // }
 }
 
 /* スマホ向けレイアウト */
 @media all and (max-width: 800px) {
-  .content {
-    .main-image{
-      height: 40vh;
-      width: 100%;
-    }
-  }
+  // .content {
+  //   .main-image{
+  //     height: 40vh;
+  //     width: 100%;
+  //   }
+  // }
 }

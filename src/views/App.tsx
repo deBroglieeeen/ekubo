@@ -63,10 +63,10 @@ const App = () => {
 
         <div className = 'price-dev'>
           <ul className = "price-list" ref = {priceEl}>
-          <div className = "light"><PriceTag price = {lightMonthlyPrice} descriptions = {lightDescriptions} details = {lightCourseDetails} courseName = {lightCourseName}/></div>
-          <div className = "standard"><PriceTag price = {standardMonthlyPrice} descriptions = {standardDescriptions} details = {standardCourseDetails} courseName ={standardCourseName}/></div>
-          <div className = "premium"><PriceTag price = {premiumMonthlyPrice} descriptions = {premiumDescriptions} details = {premiumCourseDetails} courseName ={premiumCourseName}/></div>
-        </ul>
+            <PriceTag price = {lightMonthlyPrice} descriptions = {lightDescriptions} details = {lightCourseDetails} courseName = {lightCourseName}/>
+            <PriceTag price = {standardMonthlyPrice} descriptions = {standardDescriptions} details = {standardCourseDetails} courseName ={standardCourseName}/>
+            <PriceTag price = {premiumMonthlyPrice} descriptions = {premiumDescriptions} details = {premiumCourseDetails} courseName ={premiumCourseName}/>
+          </ul>
         </div>
       </div>
 
