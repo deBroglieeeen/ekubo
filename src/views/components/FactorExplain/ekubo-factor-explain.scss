@@ -13,35 +13,51 @@ $white: #ffffff;
 $title-font-size:10vh;
 $second-title-size:7vh;
 
-
-.factor-explain-container{
-  display: grid;
-  grid-template-rows: 20vh 10vh;
-  .factor-title{
-    grid-row: 1 / 2;
+@media screen and(min-width: 1201px){
+  .factor-explain-container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    h2{
-      grid-column: 2 / 3;
-      font-size: $title-font-size;
-      margin-left: 20%;
-      padding-left: 20%;
-      color: $white;
+    grid-template-rows: 20vh 10vh;
+    .factor-title{
+      grid-row: 1 / 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      h2{
+        grid-column: 2 / 3;
+        font-size: $title-font-size;
+        margin-left: 20%;
+        padding-left: 20%;
+        color: $white;
+      }
+      h3{
+        grid-column: 3 / 4;
+        font-size: $second-title-size;
+        padding-top: 4vh;
+        padding-right: 20%;
+        margin-right: 20%;
+        color: $passion-grey;
+      }
     }
-    h3{
-      grid-column: 3 / 4;
-      font-size: $second-title-size;
-      padding-top: 4vh;
-      padding-right: 20%;
-      margin-right: 20%;
-      color: $passion-grey;
+    .factor-content{
+      grid-row: 2 / 3;
+
+      p{
+        font-size:1.5vh;
+      }
     }
   }
-  .factor-content{
-    grid-row: 2 / 3;
+}
 
-    p{
-      font-size:1.5vh;
-    }
+
+
+/* タブレット向けレイアウト */
+@media all and (max-width: 1200px){
+  .factor-explain-container{
+    width: 80vw;
+  }
+}
+/* スマホ向けレイアウト */
+@media all and (max-width: 414px){
+  .factor-explain-container{
+    width: 80vw;
   }
 }
